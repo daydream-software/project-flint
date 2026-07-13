@@ -12,7 +12,7 @@
   "kv_namespaces": [
     {
       "binding": "FLINT_KV",
-      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+      "id": "50b443ca06e94a909b645aad9afd7b16"
     }
   ],
   // Not secrets — an Access team domain and an app's Audience tag are
@@ -24,8 +24,8 @@
   // link on the public page — see src/access.ts. Leave unset and the link
   // just stays hidden; it has no effect on actual access control.
   "vars": {
-    "ACCESS_TEAM_DOMAIN": "REPLACE_WITH_TEAM_DOMAIN",
-    "ACCESS_AUD": "REPLACE_WITH_ACCESS_AUD_TAG"
+    "ACCESS_TEAM_DOMAIN": "restless-bush-210e.cloudflareaccess.com",
+    "ACCESS_AUD": "9e2251812899a43946e9e7b73647011b2568b3e00cb0cc59a3c3aa6cdee1f50e"
   },
   // Phase 1: daydreamsoftware.ca only. docs.daydreamsoftware.ca stays on its
   // current setup (project-elm/docs) until the Flint docs view is ready —
