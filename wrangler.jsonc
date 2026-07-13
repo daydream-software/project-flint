@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "project-flint",
+  "main": "src/index.tsx",
+  "compatibility_date": "2026-07-13",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  // Create with `wrangler kv namespace create FLINT_KV` (needs your own
+  // Cloudflare login — not run from this sandbox) and replace the id below.
+  "kv_namespaces": [
+    {
+      "binding": "FLINT_KV",
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+    }
+  ],
+  // Not secrets — an Access team domain and an app's Audience tag are
+  // opaque identifiers, not credentials. Both come from the Cloudflare Zero
+  // Trust dashboard once you've created the /dashboard Access application:
+  // team domain = your Zero Trust org's domain (Settings > Custom Pages, or
+  // the URL you use to log in); AUD tag = shown on the application's
+  // Overview page. Used only to cosmetically show/hide the Dashboard nav
+  // link on the public page — see src/access.ts. Leave unset and the link
+  // just stays hidden; it has no effect on actual access control.
+  "vars": {
+    "ACCESS_TEAM_DOMAIN": "REPLACE_WITH_TEAM_DOMAIN",
+    "ACCESS_AUD": "REPLACE_WITH_ACCESS_AUD_TAG"
+  },
+  // Phase 1: daydreamsoftware.ca only. docs.daydreamsoftware.ca stays on its
+  // current setup (project-elm/docs) until the Flint docs view is ready —
+  // see flint-architecture project memory. Requires the domain to already
+  // be a Cloudflare zone, and (for Custom Domains) the DNS record to not
+  // already point elsewhere.
+  // Custom Domain patterns must be a bare hostname — no wildcard, no path
+  // (a Custom Domain routes ALL traffic on that hostname to this Worker).
+  "routes": [
+    { "pattern": "daydreamsoftware.ca", "custom_domain": true },
+    { "pattern": "www.daydreamsoftware.ca", "custom_domain": true }
+  ]
+}
