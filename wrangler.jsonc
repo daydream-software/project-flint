@@ -35,7 +35,6 @@
   // Custom Domain patterns must be a bare hostname — no wildcard, no path
   // (a Custom Domain routes ALL traffic on that hostname to this Worker).
   "routes": [
-    { "pattern": "daydreamsoftware.ca", "custom_domain": true },
-    { "pattern": "www.daydreamsoftware.ca", "custom_domain": true }
+    { "pattern": "daydreamsoftware.ca", "custom_domain": true }
   ]
 }
